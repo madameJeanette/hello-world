@@ -1,3 +1,4 @@
+[code]
 //roep de library
 #include <Servo.h>
 
@@ -5,8 +6,6 @@ Servo deurtje; // maakt servo object om de servo te besturen.
 int deurPos; // variabele voor de positie in graden van de servo aka het deurtje.
 int deurDefault = 0; // variabele voor de default stand van deurtje 0 graden = dicht.
 int servoPin = 11;   // de pin waar de servo op staat op de Arduino
-String manangerAlert = "Assistentie gevraagd bij kassa 1."; //bericht voor de mananger als de betaling mislukt.
-String klantAlert = "Wacht op de winkel mananger."; //bericht voor de klant als de betaling mislukt.
 String klantBetaald = "Betaling geslaagd, de deur zal spoedig voor u open gaan."; //bericht voor klant wanneer betaling is geslaagd.
 int arduinoBram = 2; //Pin waar de Servo signaal voor de betaling van krijgt
 
@@ -19,15 +18,15 @@ void setup() {
  deurtje.write(deurDefault); // default dicht.
 }
 void loop(){
-  if(digitalRead(arduinoBram)){ // Leest of stroom op de pin 2 staat.
-    Serial.println("We got da powah");
+  if(digitalRead(arduinoBram)){ // Leest of stroom op de pin 2 staat van de Arduino van Bram.
     Serial.println(deurPos);
-    if(deurPos == 90){
+     if(deurPos == 90){
       Serial.println("open");
       openDeur();
       }
-    }else{
-    if(deurPos <= 0){
+    }
+    else{
+     if(deurPos <= 0){
       Serial.println("close");
       sluitDeur();
       }
@@ -52,3 +51,5 @@ void sluitDeur(){
 }
 
 
+
+[/code]
